@@ -1,4 +1,5 @@
-
+import { ADD_TODO } from './actions'
+import { CHECK_TODO } from './actions'
 
 const initialState = {
     todos: []
