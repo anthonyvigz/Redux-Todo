@@ -10,6 +10,8 @@ class TodoList extends Component {
 		}
 	}
 
+  // handle change event
+
   handleChange = (event) => {
 		event.preventDefault()
 
@@ -18,15 +20,20 @@ class TodoList extends Component {
 		})
 	}
 
-    addTodo = (event) => {
-        event.preventDefault();
+  // add a todo item to the list and reset the component state
 
-        const { todo } = this.state;
+  addTodo = (event) => {
+      event.preventDefault();
 
-        this.props.addTodo(todo);
+      const { todo } = this.state;
 
-        this.setState({ todo: '' })
-    } 
+      this.props.addTodo(todo);
+
+      this.setState({ todo: '' })
+  } 
+
+
+  // render the list of todos and the submit form 
 
   render() {
     
@@ -48,11 +55,15 @@ class TodoList extends Component {
     }
   }
 
+// getting the props from the redux state store
+
 const mapStateToProps = (state) => {
     return {
         todos: state.todos
     }
 }
+
+// getting the actions props from redux state
 
 const mapDispatchToProps = {
     addTodo: addTodo
