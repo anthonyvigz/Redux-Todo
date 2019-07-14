@@ -10,7 +10,7 @@ class TodoList extends Component {
 		}
 	}
 
-    handleChange = (event) => {
+  handleChange = (event) => {
 		event.preventDefault()
 
 		this.setState({
@@ -29,10 +29,18 @@ class TodoList extends Component {
     } 
 
   render() {
+    
+    const { todos } = this.props;
+
     return (
       <div className="list">
+          {todos.map( todo => {
+            return ( 
+            <div className="todo">{todo}</div>
+          )})}
+        
           <form onSubmit={this.addTodo}>
-            <input type="text" placeholder="New Todo!" onChange={this.handleChange} />
+            <input type="text" placeholder="New Todo!" onChange={this.handleChange} value={this.state.todo}/>
             <button type="submit">Add!</button>
           </form>
       </div>
