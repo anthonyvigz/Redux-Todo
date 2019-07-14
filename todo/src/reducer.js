@@ -8,8 +8,15 @@ const initialState = {
 export default function(state = initialState, action) {
     switch (action.type) {
         case ADD_TODO:
+
+            const { todo } = action.payload
+            const newList = state.todos.concat([
+                todo
+            ])
+
             return {
-                ...state
+                ...state,
+                todos: newList
             }
 
         case CHECK_TODO:
