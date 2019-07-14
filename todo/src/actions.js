@@ -6,7 +6,9 @@ export function addTodo(todo) {
     return {
         type: ADD_TODO,
         payload: {
-            todo
+            name: todo,
+            completed: false,
+            id: Date.now()
         }
     }
 }

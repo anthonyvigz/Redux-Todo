@@ -43,7 +43,7 @@ class TodoList extends Component {
       <div className="list">
           {todos.map( todo => {
             return ( 
-            <div className="todo">{todo}</div>
+            <div className="todo">{todo.name}</div>
           )})}
         
           <form onSubmit={this.addTodo}>

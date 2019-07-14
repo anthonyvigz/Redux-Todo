@@ -6,3 +6,9 @@ button {
   width: 50px;
   height: 20px;
 }
+
+.todo {
+  font-size: 3em;
+  color: dodgerblue;
+  font-weight: bold;
+}
