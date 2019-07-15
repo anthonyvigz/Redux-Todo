@@ -47,7 +47,7 @@ class Todo extends Component {
                 id={this.props.todo.id} 
                 onClick={this.checkTodo} 
                 className="todo"
-                style={this.props.todo.completed ? {textDecoration: "line-through", background: "lightblue"} : null}
+                style={this.props.todo.completed ? {textDecoration: "line-through", opacity: "0.5", transition: "1s"} : null}
             >
                     {this.props.todo.name}
             </div>
