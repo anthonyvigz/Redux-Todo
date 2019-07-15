@@ -28,7 +28,14 @@ class Todo extends Component {
 
     render() {
         return (
-        <div id={this.props.todo.id} onClick={this.checkTodo} className="todo">{this.props.todo.name}</div>
+        <div 
+            id={this.props.todo.id} 
+            onClick={this.checkTodo} 
+            className="todo"
+            style={this.props.todo.completed ? {textDecoration: "line-through", background: "lightblue"} : null}
+        >
+                {this.props.todo.name}
+        </div>
             )
     }
 }
