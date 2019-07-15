@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { addTodo, checkTodo } from '../actions'
+import { addTodo, checkTodo, deleteTodo } from '../actions'
 
 class Todo extends Component {  
     constructor() {
@@ -8,6 +8,8 @@ class Todo extends Component {
 		this.state = {
 		}
 	}
+
+    // check off todo
 
     checkTodo = (event) => {
         
@@ -24,17 +26,32 @@ class Todo extends Component {
 
         this.props.checkTodo(todos)
     }
+
+    // delete todo function
+
+    deleteTodo = () => {
+        const id = this.props.todo.id
+
+        const todos = this.props.todos.filter( todo => {
+            return todo ? (todo.id != id) : null
+        })
+
+        this.props.deleteTodo(todos)
+    }
     
 
     render() {
         return (
-        <div 
-            id={this.props.todo.id} 
-            onClick={this.checkTodo} 
-            className="todo"
-            style={this.props.todo.completed ? {textDecoration: "line-through", background: "lightblue"} : null}
-        >
-                {this.props.todo.name}
+        <div className="todocard">
+            <div 
+                id={this.props.todo.id} 
+                onClick={this.checkTodo} 
+                className="todo"
+                style={this.props.todo.completed ? {textDecoration: "line-through", background: "lightblue"} : null}
+            >
+                    {this.props.todo.name}
+            </div>
+            <button onClick={this.deleteTodo}>Delete</button>
         </div>
             )
     }
@@ -51,7 +68,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     addTodo: addTodo,
-    checkTodo: checkTodo
+    checkTodo: checkTodo,
+    deleteTodo: deleteTodo
 }
 
 export default connect(

@@ -1,5 +1,6 @@
 import { ADD_TODO } from './actions'
 import { CHECK_TODO } from './actions'
+import { DELETE_TODO } from './actions'
 
 const initialState = {
     todos: []
@@ -19,6 +20,12 @@ export default function(state = initialState, action) {
             }
 
         case CHECK_TODO:
+            return {
+                ...state,
+                todos: action.payload
+            }
+
+        case DELETE_TODO:
             return {
                 ...state,
                 todos: action.payload
