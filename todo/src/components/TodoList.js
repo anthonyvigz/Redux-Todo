@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addTodo, checkTodo } from '../actions'
+import Todo from './Todo'
 
 class TodoList extends Component {  
     constructor() {
@@ -30,8 +31,9 @@ class TodoList extends Component {
       this.props.addTodo(todo);
 
       this.setState({ todo: '' })
-  } 
+   }
 
+  
 
   // render the list of todos and the submit form 
 
@@ -43,7 +45,7 @@ class TodoList extends Component {
       <div className="list">
           {todos.map( todo => {
             return ( 
-            <div className="todo">{todo.name}</div>
+              <Todo todo={todo} key={todo.id} checkTodo={this.checkTodo} />
           )})}
         
           <form onSubmit={this.addTodo}>
@@ -66,7 +68,8 @@ const mapStateToProps = (state) => {
 // getting the actions props from redux state
 
 const mapDispatchToProps = {
-    addTodo: addTodo
+    addTodo: addTodo,
+    checkTodo: checkTodo
 }
 
 export default connect(

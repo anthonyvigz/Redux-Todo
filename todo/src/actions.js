@@ -13,11 +13,9 @@ export function addTodo(todo) {
     }
 }
 
-export function checkTodo(todo) {
+export function checkTodo(todos) {
     return {
         type: CHECK_TODO,
-        payload: {
-            todo
-        }
+        payload: todos
     }
 }

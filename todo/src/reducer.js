@@ -19,7 +19,10 @@ export default function(state = initialState, action) {
             }
 
         case CHECK_TODO:
-            return 'testCheck'
+            return {
+                ...state,
+                todos: action.payload
+            }
 
         default:
             return state;
